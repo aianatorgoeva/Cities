@@ -30,10 +30,10 @@ jobs:
       - uses: csexton/release-asset-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          pattern: Cities/bin/Debug/net5.0-windows/*
+          pattern: Cities/bin/Release/net5.0-windows/*
           release-url: ${{ steps.create_release.outputs.upload_url }}
       - name: Artifact
         uses: actions/upload-artifact@v2
         with: 
           name: myartifacts
-          path: Cities/bin/Debug/net5.0-windows/*
+          path: Cities/bin/Release/net5.0-windows/*
