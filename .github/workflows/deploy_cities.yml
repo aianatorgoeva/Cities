@@ -24,4 +24,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: myartifacts
-          path: Release
+          path: Release/net5.0-windows
