@@ -1,0 +1,119 @@
+﻿<Window x:Class="Cities.LeaderBoard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cities"
+        mc:Ignorable="d"
+        Title="LeaderBoard" Height="622" Width="550">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition Height="0.95*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontFamily="Comic Sans MS"
+            Text="Leader Board"
+            FontSize="16"
+            Grid.Row="0"
+        />
+        <ListView Grid.Row="1" x:Name="Leaders">
+            <ListView.Resources>
+
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Focusable" Value="false"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Rank}"
+                                     Value="1">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#A57C01" Offset="0.0"/>
+                                        <GradientStop Color="#B79001" Offset="0.25"/>
+                                        <GradientStop Color="#FFDF01" Offset="0.5"/>
+                                        <GradientStop Color="#EDCB01" Offset="0.75"/>
+                                        <GradientStop Color="#DBB701" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="AliceBlue"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Rank}"
+                                     Value="2">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#70706F" Offset="0.0"/>
+                                        <GradientStop Color="#7D7D7A" Offset="0.25"/>
+                                        <GradientStop Color="#8E8D8D" Offset="0.5"/>
+                                        <GradientStop Color="#A1A2A3" Offset="0.75"/>
+                                        <GradientStop Color="#BEC0C2" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="AliceBlue"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Rank}"
+                                     Value="3">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#6E3A06" Offset="0.0"/>
+                                        <GradientStop Color="#864B11" Offset="0.25"/>
+                                        <GradientStop Color="#9E5D1C" Offset="0.5"/>
+                                        <GradientStop Color="#B56E26" Offset="0.75"/>
+                                        <GradientStop Color="#CD7F31" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="AliceBlue"></Setter>
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="40" Header="Rank">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Rank}"
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" 
+                                           Height="40"
+                                           FontSize="16"
+                                           Padding="20 10 0 0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="275" Header="Nickname">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=User.Name}"
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" 
+                                           Height="40"
+                                           FontSize="16"
+                                           Padding="20 10 0 0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="200" Header="Score">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=User.Record}" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" 
+                                           Height="40"
+                                           FontSize="16"
+                                           Padding="20 10 0 0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
